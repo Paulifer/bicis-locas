@@ -20,17 +20,15 @@ function validateForm(){
        validaNombre.appendChild(spancitoN);
  	 return false;
  	
- 	}else if( nombre == "" || nombre.length == 0 || nombre.charAt(0) != nombre.charAt(0).toUpperCase()) {
+ 	}else if(spancitoN!=null) {
+            validaNombre.removeChild(spancitoN);
+        }else if( nombre == "" || nombre.length == 0 || nombre.charAt(0) != nombre.charAt(0).toUpperCase()) {
        var spancitoNma = document.createElement("span");
        var mensajeNma = document.createTextNode("Debe contener mayuscula inicial");
        spancitoNma.appendChild(mensajeNma);
        validaNombre.appendChild(spancitoNma);
        return true;
-    } else {
-        if(spancitoN!=null || spancitoNma!=null) {
-            validaNombre.removeChild(spancitoN, spancitoNma);
-        }
-    }
+    } 
      if( apellido == null || apellido.length == 0 || /^\s+$/.test(apellido) ) {
  	   var spancitoA = document.createElement("span");
        var mensajeA = document.createTextNode("Este campo no debe estar vacio");
